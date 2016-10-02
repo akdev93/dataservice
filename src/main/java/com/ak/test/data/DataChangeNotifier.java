@@ -49,6 +49,8 @@ public class DataChangeNotifier {
         }
         catch(Exception e ) {
             e.printStackTrace();
+
+            throw new RuntimeException("Unable to start because we cannot connect too zookeeper", e);
         }
 
     }

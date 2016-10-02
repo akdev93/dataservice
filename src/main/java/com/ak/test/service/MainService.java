@@ -18,6 +18,9 @@ public class MainService {
     @RequestMapping("/data")
     @ResponseBody
     public String getData() {
+
+        if(!data.isOK())
+            throw new RuntimeException("There is an issue with data. Not serving this request");
         String s = data.getData();
 
         System.out.println("data : "+s);
@@ -27,6 +30,9 @@ public class MainService {
 
     @RequestMapping("/updateData")
     public String updateData(@RequestParam("data") String text) {
+        if(!data.isOK())
+            throw new RuntimeException("There is an issue with data. Not serving this request");
+
         data.setData(text);
 
         try {

@@ -73,6 +73,7 @@ public class Data {
 
     void reloadData() {
         cachedData = loadFile();
+        failed=false;
     }
 
 
