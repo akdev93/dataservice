@@ -60,6 +60,7 @@ public class DataChangeNotifier {
             framework.setData().forPath(zkPath, (System.nanoTime()+"").getBytes());
         }catch(Exception e) {
             e.printStackTrace();
+            throw new RuntimeException("Unable to save to zookeeper node", e);
         }
     }
 
